@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>essai de site</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+    padding: 50px;
+        }
+        .form-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 0 auto;
+        }
+        .form-container h2 {
+            text-align: center;
+            color: #333;
+        }
+        input[type="text"], input[type="email"], input[type="password"], input[type="submit"] {
+            width: 100%;
+    padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        ul li {
+            background-color: #4CAF50;
+            border-radius: 8px;
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        ul li:hover {
+            transform: scale(1.1);
+            background-color: #45a049;
+        }
+        ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+    <form><center>
+  <h1>bienvenus! veuillez remplire le formilaire si desous  </h1>
+  <div class="form-container">
+    <h2>Inscription</h2>
+<form action="/soumettre_formulaire" method="POST">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="mot_de_passe">Mot de passe :</label>
+        <input type="password" id="mot_de_passe" name="mot_de_passe" required>
+
+        <label for="confirmer_mdp">Confirmer le mot de passe :</label>
+<input type="password" id="confirmer_mdp" name="confirmer_mdp" required>
+
+        <input type="submit" value="S'inscrire">
+    </form>
+</div>
+
+    <ul>
+        <li>
+            <a href="page1.html" alt="bienvenus">La première page</a>
+        </li>
+        <li>
+           <a href="page2.html" alt="bienvenus">Voir la deuxième page</a>
+        </li>
+        <li>
+            <a href="page3.html" alt="bienvenus">Voir la troisième page</a>
+        </li>
+    </ul> 
+    <section>
+        <h1>quelque information</h1>
+        
+    </section> 
+
+</body>
+</html>
+
+<script>
+const express = require('express');
+const app = express();
+const path = require('path');
+
+// Middleware pour traiter les données du formulaire
+app.use(express.urlencoded({ extended: true }));
+
+// Servir les fichiers HTML
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Route pour gérer le formulaire
+app.post('/soumettre_formulaire', (req, res) => {
+    const { nom, email, mot_de_passe } = req.body;
+    console.log(`Nom: ${nom}, Email: ${email}, Mot de passe: ${mot_de_passe}`);
+    res.send('<h1>Inscription réussie !</h1><p>Merci pour votre inscription.</p>');
+});
+
+// Démarrer le serveur
+app.listen(3000, () => {
+    console.log('Serveur démarré sur http://localhost:3000');
+});
+</script>

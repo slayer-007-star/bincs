@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 1 - Les Étoiles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #1e3c72, #2a5298);
+            color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #ffcc00;
+            margin-bottom: 20px;
+        }
+        p {
+            line-height: 1.8;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .highlight {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+        .star-animation {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement("div");
+                star.classList.add("star-animation");
+                star.style.top = Math.random() * window.innerHeight + "px";
+                star.style.left = Math.random() * window.innerWidth + "px";
+                document.body.appendChild(star);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="content">
+        <h1>Bienvenue à la Page 1</h1>
+        <h2>Nous allons vous parler de comment les étoiles se présentent</h2>
+        <p>
+            Une <span class="highlight">étoile</span> est un objet céleste qui émet de la lumière et de la chaleur en raison de réactions nucléaires qui se produisent dans son noyau. Ce phénomène se produit grâce à la fusion de noyaux d'atomes (principalement de l'hydrogène) en éléments plus lourds, un processus qui libère une énorme quantité d'énergie.
+        </p>
+        <p>
+            <span class="highlight">Principaux points à savoir sur les étoiles :</span>
+            <ul>
+                <li><b>Composants :</b> Une étoile est principalement constituée d'hydrogène et d'hélium.</li>
+                <li><b>Formation :</b> Les étoiles naissent dans des nuages de gaz et de poussière appelés nébuleuses.</li>
+                <li><b>Évolution :</b> Les étoiles passent par différents stades durant leur vie, selon leur masse.</li>
+                <li><b>Soleil :</b> Notre Soleil est une étoile de taille moyenne, située au centre de notre système solaire.</li>
+            </ul>
+        </p>
+        <h2>Certaines personnes affirment que les étoiles sont des planètes !</h2>
+        <p>
+            Non, les étoiles ne sont pas des planètes. Voici la distinction entre ces deux types d'objets célestes :
+            <ul>
+                <li><b>Les Étoiles :</b> Boules de gaz émettant lumière et chaleur grâce à la fusion nucléaire.</li>
+                <li><b>Les Planètes :</b> Objets célestes orbitant autour des étoiles, ne produisant pas leur propre lumière.</li>
+            </ul>
+        </p>
+        <h2>Selon nos amis les martiens, les étoiles sont composées de :</h2>
+        <p>
+            <b>Hydrogène et Hélium :</b> Les principaux composants des étoiles. Elles produisent de l'énergie via la fusion nucléaire.
+        </p>
+        <h2>Vous devez retenir que :</h2>
+        <p>
+            Les étoiles ne sont pas des planètes. Elles sont des objets célestes énormes, chauds et lumineux, tandis que les planètes sont des corps célestes qui orbitent autour d'une étoile et qui ne produisent pas leur propre lumière.
+        </p>
+    </div>
+</body>
+</html>
+
